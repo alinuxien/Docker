@@ -1,0 +1,15 @@
+version: '3'
+services:
+        mydebiansshd:
+                hostname: web1
+                container_name: mydebiansshd
+                build: .
+                ports:
+                        - "32768:22"
+
+        mynginx:
+                image: nginx
+                container_name: mynginx
+                ports:
+                        - "8080:80"
+

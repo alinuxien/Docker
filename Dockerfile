@@ -7,15 +7,17 @@ ARG ROOT_PASS=default
 
 RUN apt-get update \
  && apt-get install -y openssh-server \
+ && apt-get install -y nginx \ 
+ &&apt-get install -y supervisor \
  && apt-get clean \ 
  && mkdir /run/sshd \ 
-# dossier /run/sshd au lieu de /var/run/sshd cause debian
-# on change le pass root pour l'avoir lors de la connexion ssh
  && echo "root:$ROOT_PASS" | chpasswd \ 
-# on autorise la connexion root en ssh
  && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
-EXPOSE 22
+EXPOSE 22 80
 
-CMD ["/usr/sbin/sshd", "-D"] 
- 
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+CMD ["/usr/bin/supervisord"] 
+
+

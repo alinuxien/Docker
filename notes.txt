@@ -6,15 +6,19 @@ vagrant up
 en attendant le lancement de la VM : 
 git pull #depot Docker avec le Dockerfile et la deuxième partie des notes"
 
-VM lancée :
+VM lancée, on se connecte dessus en ssh
 vagrant ssh
+
+on teste la bonne installation des outils
 vim --version
 ansible --version
 docker --version
-docker-compose --version
+
+on se place dans le dossier /vagrant, qui est synchronisé par Vagrant avec le dossier de travail sur l'hote de la VM
+cd /vagrant
 Puis on lance la construction et l'execution du container :
 docker build -t mydsn --build-arg ROOT_PASS=mon-mot-de-passe .
-docker run -d -p 32768:22 --name mydsn mydsn
+docker run -d -p 32768:22 -p 8080:80 --name mydsn mydsn
 on vérifier avec docker ps
 
 On se déconnecte de la VM

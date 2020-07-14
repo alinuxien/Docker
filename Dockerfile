@@ -3,6 +3,7 @@ FROM debian:9
 LABEL maintainer="ali.akrour@gmail.com"
 
 ARG DEBIAN_FRONTEND=noninteractive
+ARG ROOT_PASS=default
 
 RUN apt-get update \
  && apt-get install -y openssh-server \
@@ -10,7 +11,7 @@ RUN apt-get update \
  && mkdir /run/sshd \ 
 # dossier /run/sshd au lieu de /var/run/sshd cause debian
 # on change le pass root pour l'avoir lors de la connexion ssh
- && echo 'root:alinuxien' | chpasswd \ 
+ && echo "root:$ROOT_PASS" | chpasswd \ 
 # on autorise la connexion root en ssh
  && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 

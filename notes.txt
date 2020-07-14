@@ -1,0 +1,27 @@
+dans le dossier de travail
+git pull #depot Vagrant avec Vagrantfile, bootstrap.sh, et la premiere partie des notes"
+vagrant --version
+vagrant up
+
+en attendant le lancement de la VM : 
+git pull #depot Docker avec le Dockerfile et la deuxième partie des notes"
+
+VM lancée :
+vagrant ssh
+vim --version
+ansible --version
+docker --version
+docker-compose --version
+Puis on lance la construction et l'execution du container :
+docker build -t mydsn --build-arg ROOT_PASS=mon-mot-de-passe .
+docker run -d -p 32768:22 --name mydsn mydsn
+on vérifier avec docker ps
+
+On se déconnecte de la VM
+logout
+on test la connexion ssh au container
+ssh root@localhost -p 32768
+on test le serveur web du container avec :
+wget -O - http://localhost:8080
+ou avec un navigateur à la meme URL
+

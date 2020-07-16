@@ -12,7 +12,7 @@ Puis on lance la construction de l'image, avec la commande ( pensez à personnal
 docker build -t mydsn --build-arg ROOT_PASS=mon-mot-de-passe .
 
 Enfin, on va lance le container avec la commande ( nom du container "mydsn" personnalisable, ainsi que les ports d'écoute des 2 serveurs sur l'hôte, syntaxe "-p port-hote:port-container" )
-docker run -d -p 32768:22 -p 8080:80 --name mydsn mydsn
+docker run -d --restart always -p 32768:22 -p 8080:80 --name mydsn mydsn
 
 On peut vérifier que le container est bien en cours d'exécution avec la commande :
 docker ps -a

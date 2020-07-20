@@ -4,6 +4,9 @@ Il s'agit d'un projet réalisé en Juillet 2020 dans le cadre de ma formation "E
 ## Ca fait quoi ?
 Ca crée un container Docker sur une base debian, avec un serveur nginx, et accesible en ssh
 
+## Ca ressemble à quoi ?
+![Aperçu de l'architecture](https://github.com/alinuxien/Docker/raw/master/Aperc%CC%A7u%20Projet%20Docker.png)
+
 ## Contenu ?
 Un simple Dockerfile 
 
@@ -23,9 +26,6 @@ docker ps -a
 [mon nginx containerisé](http://localhost:8000)
 ### Enfin, on teste la connexion SSH
 ssh root@localhost -p 32768
-
-## Ca ressemble à quoi ?
-![Aperçu de l'architecture](https://github.com/alinuxien/Docker/raw/master/Aperc%CC%A7u%20Projet%20Docker.png)
 
 # Et après ?
 [Pourquoi pas l'utiliser dans une VM ?](https://github.com/alinuxien/Vagrant)
